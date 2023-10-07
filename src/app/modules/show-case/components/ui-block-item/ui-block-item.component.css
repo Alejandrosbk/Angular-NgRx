@@ -1,0 +1,8 @@
+.ui-block-item {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+    margin: 0 auto;
+    place-items: center;
+}
