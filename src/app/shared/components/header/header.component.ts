@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ItemModel } from '@core/models/Item.interface';
+import { ItemModel } from '@core/models/item.interface';
 
 @Component({
   selector: 'app-header',

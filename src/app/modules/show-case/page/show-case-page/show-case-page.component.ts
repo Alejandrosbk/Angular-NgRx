@@ -1,8 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ItemModel } from '@core/models/Item.interface';
-import { ShowCaseService } from '@modules/show-case/services/show-case.service';
-import { Observable } from 'rxjs';
-
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadItems } from 'src/app/state/actions/items.actions';
 @Component({
   selector: 'app-show-case-page',
   templateUrl: './show-case-page.component.html',
@@ -10,22 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class ShowCasePageComponent implements OnInit {
 
-  listItems: ItemModel[] = []
-  listItems$: Observable<any> = new Observable()
-
   constructor(
-    private showCase: ShowCaseService,
-  ) {
-
-
-  }
+    private store: Store<any>
+  ) {}
 
   ngOnInit(): void {
-    this.loadData()
+    this.store.dispatch(loadItems());
   }
-
-  loadData(): void {
-
-  }
-
 }

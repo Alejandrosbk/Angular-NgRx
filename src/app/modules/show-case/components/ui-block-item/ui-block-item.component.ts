@@ -14,15 +14,21 @@ export class UiBlockItemComponent implements OnInit {
 
   constructor(private showCase: ShowCaseService) {
 
-
   }
 
   ngOnInit(): void {
-    this.showCase.getDataApi()
-      .subscribe((res) => {
-        this.listData = res
-      })
+    this.getDataApi();
   }
 
-
+  getDataApi() {
+    this.showCase.getDataApi().subscribe({
+      next: (resp: any) => {
+        this.listData = resp;
+        console.log(resp);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
 }
