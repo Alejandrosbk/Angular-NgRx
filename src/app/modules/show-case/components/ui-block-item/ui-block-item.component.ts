@@ -24,7 +24,7 @@ export class UiBlockItemComponent implements OnInit {
     this.showCase.getDataApi().subscribe({
       next: (resp: any) => {
         this.listData = resp;
-        console.log(resp);
+        console.log('---> Products', resp);
       },
       error: (error) => {
         console.log(error);
